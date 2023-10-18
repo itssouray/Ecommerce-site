@@ -36,26 +36,6 @@ const Cart = () => {
 
     const cartItems = useContext(CartItemsContext);
 
-    const handleCheckout = async () => {
-        if(cartItems.totalAmount > 0){
-            const config = {
-                reason: 'checkout',
-                amount: cartItems.totalAmount
-            }
-
-        await axios.post("http://localhost:5000/api/payment", config)
-            .then((res) => {
-                    console.log(res.data)
-                    window.location.replace(res.data)
-                    handleCheckoutOpen()
-                }
-            )
-            .catch((err) => console.log(err))
-        }
-        else {
-            return
-        }
-    }
 
     return (
         <Fragment>
@@ -85,7 +65,7 @@ const Cart = () => {
                                         <div className="total__amount__value">${cartItems.totalAmount}.00</div>
                                     </div>
                                     <div className="checkout">
-                                        <Button variant="outlined" onClick={handleCheckout}>Checkout</Button>
+                                        <Button variant="outlined" >Checkout</Button>
                                     </div>
                                 </div>
                             }

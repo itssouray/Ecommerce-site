@@ -13,7 +13,7 @@ export const Profile = () => {
 
 export const AccountManager = () => {
 
-    TabTitle("My Account - Shema")
+    TabTitle("My Account")
 
     return (
         <ManageAccount />
